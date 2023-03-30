@@ -64,12 +64,27 @@ export type Bottle = {
   mashBill?: MashBill;
 };
 
-export type Location = {
-  id: string;
-  name: string;
-};
-
 export type User = {
   id: string;
   displayName: string;
+};
+
+export type Checkin = {
+  id: string;
+  bottle: Bottle;
+  // optional location for check-in
+  location?: Location;
+  tastingNotes: string;
+  // e.g. "Bold", "Peaty", more or less tags
+  flavorProfile: string[];
+  // people that you're with
+  friends: string[];
+  // 1-5, floating point to make half ratings possible
+  rating: number;
+};
+
+// locations are where you're checking-in from (e.g. a bar, a distillery)
+export type Location = {
+  id: string;
+  name: string;
 };
