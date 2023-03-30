@@ -1,3 +1,4 @@
+// the distillery
 export type Producer = {
   id: string;
   name: string;
@@ -7,6 +8,7 @@ export type Producer = {
   region: string;
 };
 
+// these are %'s, so floating point
 export type MashBill = {
   barley: number;
   corn: number;
@@ -43,13 +45,18 @@ export type Bottle = {
   bottler?: Bottler;
   producer: Producer;
   category?: Category;
+
+  // floating point as percentage
   abv?: number;
+
+  // e.g. 12 [years]
   statedAge?: number;
   // the distillation date
   vintageYear?: number;
   // the bottle date
   bottleYear?: number;
 
+  // e.g. the limited release/collection
   series?: string;
 
   // e.g. Plum Liqueur Barrels
