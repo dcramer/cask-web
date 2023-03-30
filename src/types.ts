@@ -36,6 +36,7 @@ export type Brand = {
 };
 
 // DisplayName is: [Brand] [Name] [Series]
+// if Brand is empty it uses the Producer instead and is considered their base
 // Producer=Hibiki Brand=Hibiki, Name=12, Series=None, DisplayName=Hibiki 12
 // Producer=Macallan, Brand=Blended Malt, Series=Mythic Journey, DisplayName=Macallan Blended Malt Mythic Journey
 export type Bottle = {
@@ -76,7 +77,7 @@ export type Checkin = {
   location?: Location;
   tastingNotes: string;
   // e.g. "Bold", "Peaty", more or less tags
-  flavorProfile: string[];
+  tags: string[];
   // people that you're with
   friends: string[];
   // 1-5, floating point to make half ratings possible
