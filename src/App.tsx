@@ -4,18 +4,37 @@ import {
   BottomNavigation,
   BottomNavigationAction,
   Box,
+  Fab,
   Paper,
+  Skeleton,
   Typography,
 } from "@mui/material";
-import { Favorite, LocationOn, Restore } from "@mui/icons-material";
+import { Add, Favorite, LocalActivity, LocationOn } from "@mui/icons-material";
 
 function App() {
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" style={{ position: "relative" }}>
       <Box sx={{ pb: 7 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Cask
         </Typography>
+
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Fab
+          color="primary"
+          aria-label="add"
+          style={{
+            position: "absolute",
+            bottom: 16,
+            right: 16,
+          }}
+        >
+          <Add />
+        </Fab>
 
         <Paper
           sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
@@ -28,7 +47,7 @@ function App() {
               // setValue(newValue);
             }}
           >
-            <BottomNavigationAction label="Recents" icon={<Restore />} />
+            <BottomNavigationAction label="Activity" icon={<LocalActivity />} />
             <BottomNavigationAction label="Favorites" icon={<Favorite />} />
             <BottomNavigationAction label="Nearby" icon={<LocationOn />} />
           </BottomNavigation>
