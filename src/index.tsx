@@ -7,12 +7,28 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import theme from "./theme";
-import App from "./App";
+import Root from "./routes/root";
+import ErrorPage from "./error-page";
+import Checkin from "./routes/checkin";
+import Activity from "./routes/activity";
+import Search from "./routes/search";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <Activity /> },
+      {
+        path: "checkin",
+        element: <Checkin />,
+      },
+      {
+        path: "search",
+        element: <Search />,
+      },
+    ],
   },
 ]);
 
@@ -24,7 +40,6 @@ root.render(
     <ThemeProvider theme={theme}>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
-      <meta name="viewport" content="initial-scale=1, width=device-width" />
       <RouterProvider router={router} />
     </ThemeProvider>
   </React.StrictMode>

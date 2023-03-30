@@ -10,31 +10,13 @@ import {
   Typography,
 } from "@mui/material";
 import { Add, Favorite, LocalActivity, LocationOn } from "@mui/icons-material";
+import { Outlet } from "react-router-dom";
 
-function App() {
+export default function Root() {
   return (
     <Container maxWidth="sm" style={{ position: "relative" }}>
       <Box sx={{ pb: 7 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Cask
-        </Typography>
-
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Fab
-          color="primary"
-          aria-label="add"
-          style={{
-            position: "absolute",
-            bottom: 16,
-            right: 16,
-          }}
-        >
-          <Add />
-        </Fab>
+        <Outlet />
 
         <Paper
           sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
@@ -47,7 +29,11 @@ function App() {
               // setValue(newValue);
             }}
           >
-            <BottomNavigationAction label="Activity" icon={<LocalActivity />} />
+            <BottomNavigationAction
+              href="/"
+              label="Activity"
+              icon={<LocalActivity />}
+            />
             <BottomNavigationAction label="Favorites" icon={<Favorite />} />
             <BottomNavigationAction label="Nearby" icon={<LocationOn />} />
           </BottomNavigation>
@@ -56,5 +42,3 @@ function App() {
     </Container>
   );
 }
-
-export default App;
