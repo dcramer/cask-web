@@ -62,6 +62,7 @@ export type Bottle = {
 
   // e.g. Plum Liqueur Barrels
   caskType?: string;
+  caskNumber?: string;
   mashBill?: MashBill;
 };
 

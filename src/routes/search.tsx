@@ -25,7 +25,7 @@ export default function Search() {
       name: "12",
       producer: {
         id: "1",
-        name: "Suntory Whisky",
+        name: "Hibiki",
         country: "Japan",
       },
     },
