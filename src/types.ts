@@ -5,7 +5,7 @@ export type Producer = {
   // e.g. Scotland
   country: string;
   // e.g. Speyside
-  region: string;
+  region?: string;
 };
 
 // these are %'s, so floating point
@@ -42,7 +42,7 @@ export type Brand = {
 export type Bottle = {
   id: string;
   name: string;
-  brand?: string;
+  brand?: Brand;
   bottler?: Bottler;
   producer: Producer;
   category?: Category;

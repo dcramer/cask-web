@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Activity /> },
       {
-        path: "checkin",
+        path: "b/:bottleId/checkin",
         element: <Checkin />,
       },
       {
