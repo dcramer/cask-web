@@ -52,6 +52,8 @@ export type Bottle = {
 
   // e.g. 12 [years]
   statedAge?: number;
+
+  // TODO: should vintage and bottling be full dates? optional month/day?
   // the distillation date
   vintageYear?: number;
   // the bottle date
@@ -63,6 +65,8 @@ export type Bottle = {
   // e.g. Plum Liqueur Barrels
   caskType?: string;
   caskNumber?: string;
+  // total number of bottles in line
+  totalBottles?: number;
   mashBill?: MashBill;
 };
 
