@@ -92,7 +92,7 @@ function CheckInFriends({ value, onChange }: any) {
         {friends.map((f) => (
           <Chip
             key={f.id}
-            avatar={<Avatar>{f.displayName.substr(0, 1)}</Avatar>}
+            avatar={<Avatar>{f.displayName.substring(0, 1)}</Avatar>}
             label={f.displayName}
           />
         ))}

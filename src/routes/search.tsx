@@ -11,22 +11,22 @@ import { red } from "@mui/material/colors";
 import { Bottle } from "../types";
 import { getBottleDisplayName } from "../lib";
 
+import { useLoaderData } from "react-router-dom";
+import type { LoaderFunction } from "react-router-dom";
+import { searchBottles } from "../api";
+
+type LoaderData = {
+  bottles: Bottle[];
+};
+
+export const loader: LoaderFunction = async (): Promise<LoaderData> => {
+  const bottles = await searchBottles("");
+
+  return { bottles };
+};
+
 export default function Search() {
-  const bottles: Bottle[] = [
-    {
-      id: "1",
-      brand: {
-        id: "1",
-        name: "Hibiki",
-      },
-      name: "12",
-      producer: {
-        id: "1",
-        name: "Hibiki",
-        country: "Japan",
-      },
-    },
-  ];
+  const { bottles } = useLoaderData() as LoaderData;
 
   return (
     <Box>
@@ -45,7 +45,7 @@ export default function Search() {
                   </Avatar>
                 }
                 title={getBottleDisplayName(bottle)}
-                subheader={bottle.producer.name}
+                subheader={bottle.producer?.name}
               />
             </CardActionArea>
           </Card>

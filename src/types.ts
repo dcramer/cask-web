@@ -42,32 +42,32 @@ export type Brand = {
 export type Bottle = {
   id: string;
   name: string;
-  brand?: Brand;
-  bottler?: Bottler;
-  producer: Producer;
-  category?: Category;
+  brand?: Brand | null;
+  bottler?: Bottler | null;
+  producer: Producer | null;
+  category?: Category | null;
 
   // floating point as percentage
-  abv?: number;
+  abv?: number | null;
 
   // e.g. 12 [years]
-  statedAge?: number;
+  statedAge?: number | null;
 
   // TODO: should vintage and bottling be full dates? optional month/day?
   // the distillation date
-  vintageYear?: number;
+  vintageYear?: number | null;
   // the bottle date
-  bottleYear?: number;
+  bottleYear?: number | null;
 
   // e.g. the limited release/collection
-  series?: string;
+  series?: string | null;
 
   // e.g. Plum Liqueur Barrels
-  caskType?: string;
-  caskNumber?: string;
+  caskType?: string | null;
+  caskNumber?: string | null;
   // total number of bottles in line
-  totalBottles?: number;
-  mashBill?: MashBill;
+  totalBottles?: number | null;
+  mashBill?: MashBill | null;
 };
 
 export type User = {
@@ -79,14 +79,15 @@ export type Checkin = {
   id: string;
   bottle: Bottle;
   // optional location for check-in
-  location?: Location;
-  tastingNotes: string;
+  location?: Location | null;
+  tastingNotes?: string | null;
   // e.g. "Bold", "Peaty", more or less tags
   tags: string[];
   // people that you're with
   friends: string[];
   // 1-5, floating point to make half ratings possible
   rating: number;
+  user: User;
 };
 
 // locations are where you're checking-in from (e.g. a bar, a distillery)
