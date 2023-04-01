@@ -1,16 +1,11 @@
-import React from "react";
 import Container from "@mui/material/Container";
 import {
-  Avatar,
   BottomNavigation,
   BottomNavigationAction,
   Box,
-  Fab,
   Paper,
-  Skeleton,
-  Typography,
 } from "@mui/material";
-import { AccountBox, Add, Favorite, LocalActivity } from "@mui/icons-material";
+import { AccountBox, Favorite, LocalActivity } from "@mui/icons-material";
 import { Outlet, useLocation } from "react-router-dom";
 
 export default function Root() {

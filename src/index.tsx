@@ -7,30 +7,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import theme from "./theme";
-import Root from "./routes/root";
-import ErrorPage from "./error-page";
-import Checkin from "./routes/checkin";
-import Activity from "./routes/activity";
-import Search from "./routes/search";
+import routes from "./routes";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <Activity /> },
-      {
-        path: "b/:bottleId/checkin",
-        element: <Checkin />,
-      },
-      {
-        path: "search",
-        element: <Search />,
-      },
-    ],
-  },
-]);
+const router = createBrowserRouter(routes);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

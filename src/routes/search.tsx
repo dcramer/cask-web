@@ -9,10 +9,7 @@ import {
 } from "@mui/material";
 import { red } from "@mui/material/colors";
 import { Bottle } from "../types";
-
-function getBottleDisplayName(bottle: Bottle): string {
-  return `${bottle.brand?.name || bottle.producer.name} ${bottle.name}`;
-}
+import { getBottleDisplayName } from "../lib";
 
 export default function Search() {
   const bottles: Bottle[] = [
